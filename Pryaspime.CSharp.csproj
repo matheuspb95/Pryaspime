@@ -63,12 +63,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CanonScript.cs" />
-    <Compile Include="Assets\DestroyOnTime.cs" />
-    <Compile Include="Assets\DestroyOutScreen.cs" />
-    <Compile Include="Assets\ObjectPool.cs" />
-    <Compile Include="Assets\ShipMovement.cs" />
-    <Compile Include="Assets\ShootScript.cs" />
+    <Compile Include="Assets\Scripts\CanonScript.cs" />
+    <Compile Include="Assets\Scripts\DestroyOnTime.cs" />
+    <Compile Include="Assets\Scripts\DestroyOutScreen.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool.cs" />
+    <Compile Include="Assets\Scripts\ShipCollision.cs" />
+    <Compile Include="Assets\Scripts\ShipMovement.cs" />
+    <Compile Include="Assets\Scripts\ShootScript.cs" />
+    <Compile Include="Assets\Spin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
