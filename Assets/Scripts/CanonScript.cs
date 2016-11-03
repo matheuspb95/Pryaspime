@@ -3,10 +3,23 @@ using System.Collections;
 
 public class CanonScript : MonoBehaviour {
     public float duration, fromAngle, toAngle;
-	// Use this for initialization
-	void Start () {
+    public int EventIndexStart, EventIndexEnd;
+    // Use this for initialization
+    void Start () {
+        //StartCoroutine(ShootRotating());
+        EventsTimeline.Events[EventIndexStart].OnStart += StartRotation;
+        EventsTimeline.Events[EventIndexStart].OnEnd += StopRotation;
+    }
+
+    void StartRotation()
+    {
         StartCoroutine(ShootRotating());
-	}
+    }
+
+    void StopRotation()
+    {
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
