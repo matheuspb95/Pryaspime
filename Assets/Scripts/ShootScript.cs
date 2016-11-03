@@ -8,15 +8,17 @@ public class ShootScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         StartCoroutine(Shoot());
+
+        
 	}
 
     IEnumerator Shoot()
     {
         while (CanShoot)
         {
-            yield return new WaitForSeconds(FireRate);
             GameObject NewBullet = BulletPrefab.Spawn(transform.position, Quaternion.identity);//Instantiate(BulletPrefab, transform.position, Quaternion.identity) as GameObject;
             NewBullet.GetComponent<Rigidbody2D>().velocity = transform.up * BulletVelocity;
+            yield return new WaitForSeconds(FireRate);
         }
     }
 	
