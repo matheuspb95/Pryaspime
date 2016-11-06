@@ -11,6 +11,6 @@ public class ShipMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        body.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * velocity, Input.GetAxisRaw("Vertical") * velocity);
+        body.velocity = new Vector2(Input.GetAxis("Horizontal") * velocity, Input.GetAxis("Vertical") * velocity);
 	}
 }

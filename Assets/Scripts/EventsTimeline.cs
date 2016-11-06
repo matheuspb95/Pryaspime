@@ -4,20 +4,22 @@ using System.Collections.Generic;
 
 public class EventsTimeline : MonoBehaviour {
     public delegate void TimedAction();
+    public int NumberEvents;
     public List<TimedEvent> Events;
     public List<bool> Conditions;
     int ActualEvent;
     // Use this for initialization
     void Start () {
-        Conditions = new List<bool>(new bool[Events.Count]);
-        Conditions[0] = true;
+        Events = new List<TimedEvent>(NumberEvents);
+        Conditions = new List<bool>(NumberEvents);
+        //Conditions[0] = true;
         ActualEvent = 0;
 
         foreach(TimedEvent t in Events)
         {
             t.OnEnd += ChangeEvent;
         }
-        Events[0].Start();
+        //Events[0].Start();
     }
 
     void ChangeEvent()
@@ -28,6 +30,14 @@ public class EventsTimeline : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Events[ActualEvent].UpdateTime(Time.deltaTime);
+        if(ActualEvent < Events.Count)
+        {
+            Events[ActualEvent].UpdateTime(Time.deltaTime);
+        }
 	}
+
+    public void AddEvent(TimedEvent te)
+    {
+        Events.Add(te);
+    }
 }

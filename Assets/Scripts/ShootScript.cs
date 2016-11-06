@@ -3,13 +3,20 @@ using System.Collections;
 
 public class ShootScript : MonoBehaviour {
     public GameObject BulletPrefab;
-    public float FireRate, BulletVelocity, StartDelay;
+    public float FireRate, BulletVelocity, StartDelay, duration;
     public int EventIndexStart, EventIndexEnd;
     public bool CanShoot;
 	// Use this for initialization
 	void Start () {
-        EventsTimeline.Events[EventIndexStart].OnStart += StartShoot;
-        EventsTimeline.Events[EventIndexEnd].OnEnd += StopShoot;
+        StartShoot();
+        /*
+        TimedEvent newEvent = new TimedEvent(duration);
+        newEvent.OnStart += StartShoot;
+        newEvent.OnEnd += StopShoot;
+        FindObjectOfType<EventsTimeline>().AddEvent(newEvent);
+        //FindObjectOfType<EventsTimeline>().Events[EventIndexStart].OnStart += StartShoot;
+        //FindObjectOfType<EventsTimeline>().Events[EventIndexEnd].OnEnd += StopShoot;
+        */
     }
 
     void StartShoot()

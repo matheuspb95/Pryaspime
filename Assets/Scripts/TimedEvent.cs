@@ -12,6 +12,11 @@ public class TimedEvent
         public onEnd OnEnd;
         float duration, time;
 
+        public TimedEvent(float duration)
+        {
+        this.duration = duration;
+        }
+
         public void Start()
         {
             OnStart();

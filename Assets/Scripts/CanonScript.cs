@@ -6,9 +6,16 @@ public class CanonScript : MonoBehaviour {
     public int EventIndexStart, EventIndexEnd;
     // Use this for initialization
     void Start () {
-        //StartCoroutine(ShootRotating());
-        EventsTimeline.Events[EventIndexStart].OnStart += StartRotation;
-        EventsTimeline.Events[EventIndexStart].OnEnd += StopRotation;
+        //StartRotation();
+        /*
+        TimedEvent newEvent = new TimedEvent(duration);
+        newEvent.OnStart += StartRotation;
+        newEvent.OnEnd += StopRotation;
+        FindObjectOfType<EventsTimeline>().AddEvent(newEvent);
+        //FindObjectOfType<EventsTimeline>().Events[EventIndexStart].OnStart += StartRotation;
+        //FindObjectOfType<EventsTimeline>().Events[EventIndexStart].OnEnd += StopRotation;
+        FindObjectOfType<EventsTimeline>().Events[0].Start();
+        */
     }
 
     void StartRotation()
@@ -37,6 +44,6 @@ public class CanonScript : MonoBehaviour {
             transform.rotation = Quaternion.Lerp(Quaternion.Euler(0, 0, fromAngle), Quaternion.Euler(0, 0, toAngle), time / duration);
             yield return new WaitForEndOfFrame();
         }
-        GetComponent<ShootScript>().CanShoot = false;
+        // GetComponent<ShootScript>().CanShoot = false;
     }
 }
